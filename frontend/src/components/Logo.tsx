@@ -19,10 +19,10 @@ const Logo: React.FC = () => {
                     animate={{ scale: 1, opacity: 1 }} // Animar a escala 1 y opacidad 1
                     transition={{ duration: 0.5, type: 'spring', stiffness: 300 }} // Estilo de animación
                 >
-                    <FaShoppingCart size={50} color="#0a8b04" />
+                    <FaShoppingCart size={50} color="#f38c07" />
                 </motion.div>
             )}
-            <h1 style={{ marginLeft: '10px', color: '#09531c' }}>PowerBE Ecommerce</h1>
+            <h1 style={{ marginLeft: '10px', color: '#c65700' }}>PowerBE Ecommerce</h1>
         </div>
     );
 };

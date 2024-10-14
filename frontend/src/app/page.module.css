@@ -11,7 +11,7 @@
 .title {
   margin-bottom: 20px;
   font-size: 2.5rem;
-  color: #19b33f; 
+  color: #e28206; 
 }
 
 .description {
@@ -21,7 +21,7 @@
 }
 
 .link {
-  color: #159c3e;
+  color: #c16f05;
   text-decoration: underline;
   font-weight: bold;
 }
@@ -32,7 +32,7 @@
 
 .button {
   padding: 12px 24px;
-  background-color: #2aca2a; 
+  background-color: #f38c07; 
   color: white; 
   border: none; 
   border-radius: 5px;

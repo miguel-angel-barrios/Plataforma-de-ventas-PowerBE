@@ -6,13 +6,20 @@ const User = require('../models/User');
 exports.register = async (req, res) => {
     const { firstName, lastName, email, password } = req.body;
     try {
+        // Hashear la contraseña
         const hashedPassword = await bcrypt.hash(password, 10);
-        const user = await User.create({ firstName, lastName, email, password: hashedPassword });
         
+        // Crear el usuario
+        const user = await User.create({ firstName, lastName, email, password: hashedPassword });
+
         // Generar token JWT
         const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         
-        res.status(201).json({ message: 'Usuario registrado', user: { id: user.id, firstName, lastName, email }, token });
+        res.status(201).json({
+            message: 'Usuario registrado',
+            user: { id: user.id, firstName, lastName, email },
+            token
+        });
     } catch (error) {
         res.status(400).json({ message: error.message });
     }

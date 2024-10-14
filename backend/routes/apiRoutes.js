@@ -1,4 +1,3 @@
-// routes/apiRoutes.js
 const express = require('express');
 const router = express.Router();
 const { authenticateJWT } = require('../middlewares/auth');
@@ -14,7 +13,7 @@ const clientAddressController = require('../controllers/clientAddressController'
 const storageController = require('../controllers/storageController');
 const paymentController = require('../controllers/paymentController');
 const sucursalController = require('../controllers/sucursalController');
-const productDetailController = require('../controllers/productDetailController'); // Importar el controlador de detalles de productos
+const productDetailController = require('../controllers/productDetailController');
 
 // Rutas para autenticación
 router.post('/register', authController.register);

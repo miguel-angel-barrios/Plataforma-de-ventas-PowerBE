@@ -1,0 +1,37 @@
+.navbar {
+    display: flex; /* Usamos flexbox para alinear el contenido */
+    justify-content: space-between; /* Espacio entre logo y lista de navegación */
+    align-items: center; /* Centra verticalmente */
+    background-color: #ffa600bd; /* Color de fondo */
+    padding: 10px 20px; /* Espaciado interior */
+    width: 100%; /* Asegura que ocupe el 100% del ancho */
+}
+
+.logo {
+    display: flex;
+    align-items: center; /* Alinear el logo en el centro */
+}
+
+.navList {
+    list-style-type: none; /* Quita los puntos de la lista */
+    display: flex; /* Usamos flexbox para alinear horizontalmente */
+    gap: 20px; /* Espaciado entre elementos */
+}
+
+.navItem {
+    background: none; /* Sin fondo para los botones */
+    border: none; /* Sin borde */
+    color: white; /* Color del texto */
+    font-size: 1rem; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    display: flex; /* Para alinear el icono y el texto */
+    align-items: center; /* Centra verticalmente */
+}
+
+.icon {
+    margin-right: 8px; /* Espaciado entre el icono y el texto */
+}
+
+.navItem:hover {
+    background-color: #005bb5; /* Color al pasar el mouse */
+}

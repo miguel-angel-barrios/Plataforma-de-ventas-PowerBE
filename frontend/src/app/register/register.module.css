@@ -1,0 +1,75 @@
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    margin-bottom: 20px;
+    color: #e28206;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alineación centrada */
+}
+
+.inputGroup {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+}
+
+.icon {
+    margin-right: 8px;
+    color: #e28206;
+}
+
+.input {
+    flex: 1; /* Asegura que el campo de entrada ocupe el espacio restante */
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #e28206;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Ancho completo */
+}
+
+.button:hover {
+    background-color: #005bb5;
+}
+
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.redirectText {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.link {
+    color: #ffa500; /* Color naranjo */
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.link:hover {
+    color: #0070f3; /* Cambia a azul al pasar el mouse */
+}
