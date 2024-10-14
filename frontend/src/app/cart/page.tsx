@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'; // Importamos los hooks de React.
 import { motion } from 'framer-motion'; // Importamos Framer Motion para las animaciones.
 import Navbar from '../../components/Navbar'; // Importa la navbar.
 import styles from './cart.module.css'; // Importamos los estilos para la página del carrito.
+import axios from 'axios'; // Importamos Axios para realizar solicitudes HTTP.
 
 const CartPage = () => {
     const [cartItems, setCartItems] = useState([]); // Estado para almacenar los artículos del carrito.
@@ -48,22 +49,38 @@ const CartPage = () => {
         return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2); // Asegúrate de usar el precio correcto.
     };
 
-    const handleCheckout = () => {
-        // Crea la boleta de compra
-        const purchaseDetails = {
-            items: cartItems,
-            total: calculateTotal(),
-            date: new Date().toISOString(), // Puedes agregar la fecha de la compra
-        };
+    const handleCheckout = async () => {
+        const totalAmount = calculateTotal(); // Calcula el total del carrito
+        const purchaseDetails = cartItems.map(item => ({
+            id: item.id,
+            name: item.name,
+            quantity: item.quantity,
+            price: item.price,
+            subtotal: (item.price * item.quantity).toFixed(2) // Calcular el subtotal para cada artículo
+        }));
     
-        // Guardar boleta en sessionStorage
-        let purchases = JSON.parse(sessionStorage.getItem('purchases')) || [];
-        purchases.push(purchaseDetails);
-        sessionStorage.setItem('purchases', JSON.stringify(purchases));
+        try {
+            const token = localStorage.getItem('token'); // Obtener el token del almacenamiento local
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`, // Incluir el token en los encabezados
+                },
+            };
     
-        // Redirigir a la página de confirmación de compra
-        window.location.href = '/confirmation';
+            // Enviar la solicitud POST para crear un nuevo cheque
+            await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/checks`, {
+                totalAmount,
+                purchaseDetails
+            }, config);
+    
+            // Redirigir a la página de confirmación de compra
+            window.location.href = '/confirmation';
+        } catch (error) {
+            console.error('Error al guardar la confirmación de la compra:', error); // Manejo de errores
+        }
     };
+    
+    
 
     return (
         <div className={styles.container}>

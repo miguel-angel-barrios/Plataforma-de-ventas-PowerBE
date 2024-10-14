@@ -27,4 +27,6 @@ const authorize = (roles) => {
     };
 };
 
-module.exports = { authenticateJWT, authorize };
+
+
+module.exports = { authenticateJWT, authorize }

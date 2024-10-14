@@ -23,7 +23,7 @@ sequelize.authenticate()
         console.log('Conexión a la base de datos establecida con éxito.');
 
         // Sincroniza los modelos de Sequelize
-        sequelize.sync() // Elimina el force para evitar perder datos
+        sequelize.sync({ alter: true }) // Cambia a 'alter' para evitar pérdida de datos
             .then(() => {
                 console.log('Modelos sincronizados.');
                 

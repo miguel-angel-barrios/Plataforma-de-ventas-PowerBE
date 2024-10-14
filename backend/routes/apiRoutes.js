@@ -4,7 +4,7 @@ const { authenticateJWT } = require('../middlewares/auth');
 const authController = require('../controllers/authController');
 const productController = require('../controllers/productController');
 const clientController = require('../controllers/clientController');
-const checkController = require('../controllers/checkController');
+const checkController = require('../controllers/checkController'); // Controlador para las boletas
 const salesmanController = require('../controllers/salesmanController');
 const lineController = require('../controllers/lineController');
 const userLogController = require('../controllers/userLogController');
@@ -37,11 +37,11 @@ router.post('/clients', authenticateJWT, clientController.createClient);
 router.put('/clients/:id', authenticateJWT, clientController.updateClient);
 router.delete('/clients/:id', authenticateJWT, clientController.deleteClient);
 
-// Rutas para cheques
-router.get('/checks', authenticateJWT, checkController.getAllChecks);
-router.post('/checks', authenticateJWT, checkController.createCheck);
-router.put('/checks/:id', authenticateJWT, checkController.updateCheck);
-router.delete('/checks/:id', authenticateJWT, checkController.deleteCheck);
+// Rutas para cheques (boletas)
+router.get('/checks', authenticateJWT, checkController.getAllChecks); // Obtener todas las boletas
+router.post('/checks', authenticateJWT, checkController.createCheck); // Crear una nueva boleta
+router.put('/checks/:id', authenticateJWT, checkController.updateCheck); // Actualizar una boleta
+router.delete('/checks/:id', authenticateJWT, checkController.deleteCheck); // Eliminar una boleta
 
 // Rutas para vendedores
 router.get('/salesmen', authenticateJWT, salesmanController.getSalesmen);
