@@ -49,7 +49,19 @@ const CartPage = () => {
     };
 
     const handleCheckout = () => {
-        // Redirigir a la página de confirmación de compra.
+        // Crea la boleta de compra
+        const purchaseDetails = {
+            items: cartItems,
+            total: calculateTotal(),
+            date: new Date().toISOString(), // Puedes agregar la fecha de la compra
+        };
+    
+        // Guardar boleta en sessionStorage
+        let purchases = JSON.parse(sessionStorage.getItem('purchases')) || [];
+        purchases.push(purchaseDetails);
+        sessionStorage.setItem('purchases', JSON.stringify(purchases));
+    
+        // Redirigir a la página de confirmación de compra
         window.location.href = '/confirmation';
     };
 

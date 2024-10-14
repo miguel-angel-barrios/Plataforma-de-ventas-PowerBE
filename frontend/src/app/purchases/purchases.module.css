@@ -1,0 +1,35 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #e28206;
+}
+
+.purchasesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Grid responsivo */
+    gap: 20px;
+}
+
+.purchaseCard {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s; /* Transición suave */
+}
+
+.purchaseDate {
+    font-size: 1.2rem;
+    color: #333333;
+}
+
+.total {
+    font-size: 1.2rem;
+    color: #e28206;
+}
