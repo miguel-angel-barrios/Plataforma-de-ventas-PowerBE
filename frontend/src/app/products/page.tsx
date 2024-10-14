@@ -101,6 +101,21 @@ const ProductsPage = () => {
         }
     };
 
+    // Función para agregar el producto al carrito
+    const addToCart = (product) => {
+        const cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || []; // Obtener el carrito del sessionStorage
+        const existingItem = cartItems.find(item => item.id === product.id);
+
+        if (existingItem) {
+            existingItem.quantity += 1; // Si el producto ya está en el carrito, aumentar la cantidad
+        } else {
+            cartItems.push({ ...product, quantity: 1 }); // Si no está, agregarlo con cantidad 1
+        }
+
+        sessionStorage.setItem('cartItems', JSON.stringify(cartItems)); // Guardar el carrito actualizado en sessionStorage
+        alert('Producto añadido al carrito!'); // Mensaje de éxito
+    };
+
     return (
         <div className={styles.container}>
             <Navbar /> {/* Agregamos la navbar */}
@@ -178,14 +193,21 @@ const ProductsPage = () => {
                             whileHover={{ scale: 1.1 }}
                         >
                             Editar
-                        </motion.button>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        </motion.button>&nbsp;&nbsp;&nbsp;&nbsp;
                         <motion.button
                             onClick={() => deleteProduct(product.id)}
                             className={styles.deleteButton}
                             whileHover={{ scale: 1.1 }}
                         >
                             Eliminar
+                        </motion.button>
+                        <br /><br />
+                        <motion.button
+                            onClick={() => addToCart(product)} // Botón para añadir al carrito
+                            className={`${styles.addToCartButton} ${styles.greenButton}`} // Añadimos la clase para el estilo verde
+                            whileHover={{ scale: 1.1 }}
+                        >
+                            Añadir al Carrito
                         </motion.button>
                     </motion.div>
                 ))}
