@@ -98,3 +98,22 @@
     margin-top: 20px;
     text-align: right; /* Alinear a la derecha */
 }
+/* Estilo para el botón de confirmar compra */
+.confirmButton {
+    padding: 12px 24px; /* Espaciado del botón */
+    background-color: #4caf50; /* Color de fondo verde */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de puntero */
+    font-size: 1.2rem; /* Tamaño de fuente */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+    margin-top: 20px; /* Espacio superior */
+    display: block; /* Para que el botón ocupe el ancho completo */
+    width: 100%; /* Ocupar el ancho completo */
+}
+/* Estilo al pasar el mouse por el botón de confirmar compra */
+.confirmButton:hover {
+    background-color: #45a049; /* Color más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Pequeño aumento al pasar el mouse */
+}

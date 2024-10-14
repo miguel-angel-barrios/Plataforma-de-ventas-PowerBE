@@ -1,0 +1,40 @@
+/* Contenedor principal */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Título de la página */
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #e28206;
+}
+
+/* Estilos para la boleta */
+.bill {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los artículos de la compra */
+.items {
+    margin-bottom: 20px;
+}
+
+/* Estilo para cada artículo en la boleta */
+.item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+/* Estilo para el total */
+.total {
+    text-align: right;
+    font-size: 1.5rem;
+    color: #e28206;
+    margin-top: 20px;
+}
