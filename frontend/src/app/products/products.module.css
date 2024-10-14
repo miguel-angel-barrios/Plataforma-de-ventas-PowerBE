@@ -1,26 +1,32 @@
+/* Contenedor principal */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* Título de la página */
 .title {
     text-align: center;
     margin-bottom: 20px;
     color: #e28206;
 }
 
+/* Estilos para mensajes de error */
 .error {
     color: red;
     text-align: center;
+    margin-bottom: 15px;
 }
 
+/* Grid para la lista de productos */
 .productsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Grid responsivo */
     gap: 20px;
 }
 
+/* Estilos para cada tarjeta de producto */
 .productCard {
     background-color: #ffffff;
     border-radius: 8px;
@@ -30,23 +36,61 @@
     transition: transform 0.3s; /* Transición suave */
 }
 
+/* Estilo para el nombre del producto */
 .productName {
     font-size: 1.5rem;
     color: #333333;
 }
 
+/* Estilo para la descripción del producto */
 .productDescription {
     font-size: 1rem;
     color: #666666;
     margin: 10px 0;
 }
 
+/* Estilo para la categoría del producto */
+.productCategory {
+    font-size: 1rem;
+    color: #777777;
+    margin-bottom: 10px;
+}
+
+/* Estilo para el precio del producto */
 .productPrice {
     font-size: 1.2rem;
     color: #e28206;
     margin-bottom: 15px;
 }
 
+/* Estilo del contenedor del formulario */
+.formContainer {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9; /* Fondo claro para el formulario */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilo para los campos de entrada del formulario */
+.input {
+    width: 100%;
+    max-width: 400px; /* Max ancho para el input */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s; /* Transición suave para el borde */
+}
+
+.input:focus {
+    border-color: #e28206; /* Color del borde al hacer foco */
+    outline: none; /* Eliminar el contorno por defecto */
+}
+
+/* Estilos para el botón principal */
 .button {
     padding: 10px 20px;
     background-color: #e28206;
@@ -54,9 +98,44 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 10px;
+}
+
+/* Estilo al pasar el mouse por el botón */
+.button:hover {
+    background-color: #005bb5; /* Cambiar color al pasar el mouse */
+    transform: scale(1.05); /* Pequeño aumento al pasar el mouse */
+}
+
+/* Estilos para el botón de editar */
+.editButton {
+    padding: 8px 16px;
+    background-color: #ffca28;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.button:hover {
-    background-color: #005bb5; /* Color al pasar el mouse */
+/* Estilo al pasar el mouse por el botón de editar */
+.editButton:hover {
+    background-color: #ffa726; /* Cambiar color al pasar el mouse */
+}
+
+/* Estilos para el botón de eliminar */
+.deleteButton {
+    padding: 8px 16px;
+    background-color: #e53935;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Estilo al pasar el mouse por el botón de eliminar */
+.deleteButton:hover {
+    background-color: #d32f2f; /* Cambiar color al pasar el mouse */
 }

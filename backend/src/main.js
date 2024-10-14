@@ -19,24 +19,24 @@ app.use('/api', apiRoutes); // Prefijo para las rutas de la API
 
 // Prueba la conexión a la base de datos
 sequelize.authenticate()
-    .then(async () => {
+    .then(() => {
         console.log('Conexión a la base de datos establecida con éxito.');
 
         // Sincroniza los modelos de Sequelize
-        try {
-            await sequelize.sync(); // Usar force: true solo en desarrollo
-            console.log('Modelos sincronizados.');
-        } catch (error) {
-            console.error('Error al sincronizar los modelos:', error);
-        }
-
-        // Configura el puerto y arranca el servidor
-        const PORT = process.env.PORT || 3000;
-        app.listen(PORT, () => {
-            console.log(`Servidor corriendo en http://localhost:${PORT}`);
-        });
+        sequelize.sync() // Elimina el force para evitar perder datos
+            .then(() => {
+                console.log('Modelos sincronizados.');
+                
+                // Configura el puerto y arranca el servidor
+                const PORT = process.env.PORT || 3000;
+                app.listen(PORT, () => {
+                    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+                });
+            })
+            .catch(error => {
+                console.error('Error al sincronizar los modelos:', error);
+            });
     })
     .catch(err => {
         console.error('No se pudo conectar a la base de datos:', err);
     });
-

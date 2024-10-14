@@ -30,16 +30,16 @@ const LoginPage = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value }); // Actualizamos el estado del formulario con los nuevos valores.
     };
 
-    // Función para manejar el envío del formulario.
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault(); // Evitamos el comportamiento por defecto del formulario.
         try {
             // Hacemos la solicitud POST al backend para iniciar sesión.
             const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/login`, formData);
             const { token } = response.data; // Obtenemos el token de la respuesta.
-
+    
             // Almacenamos el token en el almacenamiento local.
             localStorage.setItem('token', token);
+    
             // Redirigimos al usuario a la página de productos.
             router.push('/products');
         } catch (error: any) {
